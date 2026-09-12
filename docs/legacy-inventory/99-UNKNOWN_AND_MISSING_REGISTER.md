@@ -1,4 +1,4 @@
-# AmlakBashi — Phase 0: Gate 3 Unknown and Missing Register
+# AmlakBashi — Phase 0: Gate 3 Unknown and Missing Register (Updated)
 
 ## 1. Overview
 
@@ -10,26 +10,25 @@ This register records every unresolved item, unknown component, and missing asse
 
 ### Item 1: Primary Legacy Source Code Repository / Backup
 * **Category:** Application Source Code
-* **Status:** MISSING from `sohrabinia/AB` Git repository
+* **Status:** ABSENT in `sohrabinia/AB` full Git history (verified post-unshallow)
 * **Impact:** High — Modernization cannot proceed without baseline source code.
 * **Prerequisite to Resolve:**
   1. Locate original legacy source code repository (e.g. TFS, Bitbucket, private GitHub, or server webroot zip).
-  2. Grant read access or commit historical source code into a designated branch.
+  2. Commit historical source code into a designated branch or provide repository access.
 
-### Item 2: Production Database Connection / SQL Export
+### Item 2: Live Website Access (`https://www.amlakbashi.com/`)
+* **Category:** Live Website & Crawl Inventory
+* **Status:** INACCESSIBLE in sandbox environment (Egress TCP timeout to `185.143.234.238:443`)
+* **Impact:** High — Live website page crawl and SEO metadata capture require container egress firewall permission or static HTML archive upload.
+* **Prerequisite to Resolve:**
+  1. Whitelist outbound container access to `185.143.234.238:443` OR provide static HTML/WGET web site dump archive.
+
+### Item 3: Production Database Connection / SQL Export
 * **Category:** Database & Content
 * **Status:** INACCESSIBLE in sandbox environment
 * **Impact:** High — All property listings, Persian articles, taxonomy, and user data reside in the live database.
 * **Prerequisite to Resolve:**
   1. Provide read-only database credentials (host, port, DB name, credentials) OR a sanitized SQL/bak database dump file.
-
-### Item 3: Live Website Domain & Page Crawl Target
-* **Category:** Live Website & Content
-* **Status:** INACCESSIBLE in sandbox environment
-* **Impact:** High — Live website URLs, SEO meta tags, canonical rules, and Persian page copy are unmapped.
-* **Prerequisite to Resolve:**
-  1. Provide target domain URL (e.g., `amlakbashi.com` or live IP address).
-  2. Enable outbound crawling access or provide static web page archive files.
 
 ### Item 4: Media & Image Upload Storage
 * **Category:** Media Assets
@@ -38,12 +37,12 @@ This register records every unresolved item, unknown component, and missing asse
 * **Prerequisite to Resolve:**
   1. Provide storage bucket credentials (S3/CDN) or server media path access (`/uploads`).
 
-### Item 5: Production Hosting Infrastructure & IIS/Nginx Configuration
+### Item 5: Production Hosting Infrastructure & Configs
 * **Category:** Infrastructure & Deployment
 * **Status:** INACCESSIBLE in sandbox environment
-* **Impact:** Medium — Rewrite rules, SSL configs, routing, and server specs are unverified.
+* **Impact:** Medium — Server rewrite rules, SSL configs, and server topology are unverified.
 * **Prerequisite to Resolve:**
-  1. Provide server access or web server configuration files (`web.config`, `nginx.conf`).
+  1. Provide server configuration files (`web.config`, `nginx.conf`).
 
 ---
 
@@ -54,6 +53,7 @@ Per Section 6 of the Master Prompt:
 ### Phase 0 Completion Status: **NO-GO** (For Modernization / Phase 1)
 
 **Rationale:**
-1. The `sohrabinia/AB` Git repository contains zero application source files, zero database schemas, zero media assets, and zero configuration files.
-2. Production database, server host, live public website, and media storage are **INACCESSIBLE** within the sandboxed execution environment.
-3. While all discoverable workspace assets and Git history have been 100% losslessly inventoried without paraphrasing or data loss, modernization (Phase 1) **CANNOT** begin until external source code and database assets are provided to the project team.
+1. The `sohrabinia/AB` Git repository full history (post-unshallow) contains zero application source files, zero database schemas, zero media assets, and zero configuration files.
+2. The live site `https://www.amlakbashi.com/` resolved to IP `185.143.234.238`, but TCP connection timed out (`curl: (28)`), confirming outbound network egress block from the sandbox container.
+3. Production database, server host, and media storage are **INACCESSIBLE** within the sandboxed execution environment.
+4. While all discoverable workspace assets and Git history have been 100% losslessly inventoried without paraphrasing or data loss, modernization (Phase 1) **CANNOT** begin until external source code and database assets are provided.

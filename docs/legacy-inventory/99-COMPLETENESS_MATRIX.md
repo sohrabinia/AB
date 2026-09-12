@@ -1,32 +1,32 @@
-# AmlakBashi — Phase 0: Gate 3 Completeness Matrix
+# AmlakBashi — Phase 0: Gate 3 Completeness Matrix (Updated)
 
 ## 1. Domain Completeness Overview
 
-This matrix lists all domains of the 11-year legacy AmlakBashi system, recording whether each domain was investigated, found, missing, inaccessible, or unknown.
+This matrix records the completeness status for all 10 system domains of the legacy AmlakBashi system following Git unshallowing and HTTP reachability testing of `https://www.amlakbashi.com/`.
 
 ---
 
 ## 2. Completeness Matrix Table
 
-| System Domain | Investigated? | Found? | Missing in Repo? | Inaccessible in Sandbox? | Unknown Elements |
+| System Domain | Investigated? | Found? | Absent in Git History? | Inaccessible in Sandbox? | Unknown Elements |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Git Version Control & Branches** | YES | YES (Baseline) | YES (No legacy code) | NO | Location of original Git repo prior to initial commit `fe243e0`. |
-| **Application Source Code & Projects** | YES | NO | YES | YES | Architecture, language runtime (.NET/PHP/Python/Node), framework versions. |
-| **Database Schema & Data Rows** | YES | NO | YES | YES | RDBMS type (SQL Server/MySQL/PostgreSQL), schema, listing/user row counts. |
-| **Persian Content & Articles** | YES | NO | YES | YES | Full corpus of Persian blog posts, property descriptions, static pages. |
-| **URL Hierarchy & SEO Metadata** | YES | NO | YES | YES | Dynamic listing URL patterns, Persian slug structure, canonical rules, sitemaps. |
-| **Media Assets & Property Uploads** | YES | NO | YES | YES | Total photo storage volume, CDN paths, image dimensions and metadata. |
-| **Authentication & User Management** | YES | NO | YES | YES | User roles (Buyer, Seller, Realtor/Agent, Admin), OTP SMS integration details. |
-| **Accounting & Financial Ledger** | YES | NO | YES | YES | `Amlakbashi.Accounting` transaction model, payment gateway integrations, ladder ("نردبان") billing. |
-| **Server Infrastructure & Deployment** | YES | NO | YES | YES | Web server type (IIS/Nginx/Apache), OS, DNS, hosting provider, SSL cert management. |
-| **Automated Tests & Quality Assurance** | YES | NO | YES | NO | Test suites (unit/integration/E2E) — verified 0 test files in repo. |
+| **Git Version Control & Branches** | YES | YES | YES (0 code files) | NO | Location of original Git repo prior to root commit `e68bd933...`. |
+| **Application Source Code & Projects** | YES | NO | YES | YES | Architecture, framework (.NET/PHP/Node), project files (`.csproj`). |
+| **Database Schema & Data Rows** | YES | NO | YES | YES | Database engine (SQL Server/MySQL), schema, listing/user row counts. |
+| **Live Web Portal (`amlakbashi.com`)** | YES | NO | YES | YES | Egress TCP timeout to `185.143.234.238:443` (`curl: (28)`). |
+| **Persian Content & Articles** | YES | NO | YES | YES | Persian blog corpus, listing copy, category taxonomy. |
+| **URL Hierarchy & SEO Metadata** | YES | NO | YES | YES | Dynamic URL routes, Persian slugs, sitemaps, canonical tags. |
+| **Media Assets & Property Uploads** | YES | NO | YES | YES | Image storage paths, CDN buckets, total photo storage volume. |
+| **Authentication & User Management** | YES | NO | YES | YES | User roles (Buyer, Seller, Agent, Admin), SMS OTP integration. |
+| **Accounting & Financial Ledger** | YES | NO | YES | YES | `Amlakbashi.Accounting` model, payment gateways, ladder ("نردبان") billing. |
+| **Server Infrastructure & Deployment** | YES | NO | YES | YES | Web server (IIS/Nginx), OS, DNS, hosting provider, SSL certificates. |
 
 ---
 
 ## 3. Matrix Summary
 
 * **Investigated Domains:** 10 / 10 (100%)
-* **Found in Workspace:** 1 / 10 (Git baseline repository only)
-* **Missing from Repo:** 9 / 10 (All source code, DB, media, config)
-* **Inaccessible via Sandbox:** 8 / 10 (External hosting, DB, media, live site)
+* **Found in Repository:** 1 / 10 (Git baseline repository only)
+* **Absent in Git History:** 10 / 10 (All 10 domains have 0 source assets in Git history)
+* **Inaccessible via Sandbox:** 9 / 10 (External server, DB, media, live site egress)
 * **Blank Cells:** 0 (Fully populated)

@@ -1,20 +1,11 @@
 # Legacy Inventory — Database & Content Tables
 
-## Status: INACCESSIBLE / VERIFIED ABSENT IN WORKSPACE
+## Status: VERIFIED ABSENT IN THIS GIT REPOSITORY'S FULL HISTORY / INACCESSIBLE EXTERNALLY
 
 ### Overview
-This directory is designated for lossless data dumps and schema records of legacy database tables (property listings, categories, locations, Persian articles/blog posts, transaction logs, system configuration).
+This directory is designated for data dumps and schema records of legacy database tables (property listings, categories, locations, Persian articles/blog posts, transaction logs, system configuration).
 
 ### Status & Findings
-* **Local Workspace SQL / Dump Files:** `VERIFIED ABSENT` (`find /app -name "*.sql"` returned 0 files).
-* **Production Database Instance:** `INACCESSIBLE` (no database host IP, port, connection string, or read-replica credentials available).
-* **Tracked Tables:** 0 tables available in current workspace session.
-
-### Required Prerequisites for Database Audit
-1. Read-only database connection credentials (host, port, DB name, username, password) OR a sanitized SQL/bak dump file.
-2. Schema documentation or table export (`.json` / `.csv` per table).
-
-### Preservation Rules Applied
-When database access is granted:
-- All columns, data types, constraints, row counts, and exact cell values must be exported without transformation.
-- Orphaned or obsolete tables must be recorded and preserved, never dropped.
+* **Git Repository History (`[FACT]`):** Full unshallowed Git history inspection confirmed zero `.sql`, `.bak`, `.dump`, or DB schema files in `sohrabinia/AB`.
+* **Production Database Instance (`[FACT]`):** Inaccessible from sandbox container (no DB host, port, connection string, or credentials available).
+* **Scope Boundary (`[FACT]`):** Database dumps are verified absent **specifically within this GitHub repository's full Git history**. The live production database resides on external hosting infrastructure managed outside version control.

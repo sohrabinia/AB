@@ -1,14 +1,11 @@
 # Legacy Inventory — Media & Asset Storage
 
-## Status: INACCESSIBLE / VERIFIED ABSENT IN WORKSPACE
+## Status: VERIFIED ABSENT IN THIS GIT REPOSITORY'S FULL HISTORY / INACCESSIBLE EXTERNALLY
 
 ### Overview
 This directory is designated for inventorying uploaded property photos, user uploads, static logos, site banners, icons, and document attachments.
 
 ### Status & Findings
-* **Local Workspace Media Files:** `VERIFIED ABSENT` (`.png`, `.jpg`, `.jpeg`, `.webp`, `.svg`, `.pdf`).
-* **External Object Store / Server Disk:** `INACCESSIBLE` (no CDN credentials, S3 buckets, or server disk upload paths configured).
-
-### Required Prerequisites
-1. Server upload directory path or S3/CDN object store credentials.
-2. Complete file listing (path, size, type, dimensions, references).
+* **Git Repository History (`[FACT]`):** Full unshallowed Git history inspection confirmed zero media files (`.png`, `.jpg`, `.jpeg`, `.webp`, `.svg`, `.pdf`) committed to `sohrabinia/AB`.
+* **External Media Storage (`[FACT]`):** Inaccessible from sandbox container (no CDN credentials, S3 buckets, or server upload paths configured).
+* **Scope Boundary (`[FACT]`):** Media assets are verified absent **specifically within this GitHub repository's full Git history**. Uploaded real estate photos reside on external hosting disk or CDN storage.

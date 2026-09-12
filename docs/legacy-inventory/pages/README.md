@@ -1,19 +1,25 @@
-# Legacy Inventory — Pages & Crawl Register
+# Legacy Inventory — Pages & Live Site Reachability
 
-## Status: INACCESSIBLE (Sandbox Network Boundary)
+## 1. Live Site HTTP Reachability Test Results
 
-### Overview
-This directory is designated for lossless crawl-based inventory of public and internal pages, property listings, Persian blog articles, category hierarchies, and static pages (About Us, Contact Us, Terms of Service).
+* **Target URL:** `https://www.amlakbashi.com/`
+* **Resolved IP:** `185.143.234.238`
+* **HTTP Test Command:** `curl -I -L -v https://www.amlakbashi.com/`
+* **Classification Status:** **`INACCESSIBLE`** (Egress Connection Timeout / Sandbox Egress Policy)
 
-### Status & Findings
-* **Live Site Accessibility:** Inaccessible within the sandbox execution environment.
-* **Discovered Pages:** 0 pages reachable in current workspace session.
-* **Required Prerequisites:**
-  1. Target live domain / IP address (e.g. `amlakbashi.com` or server IP).
-  2. Public crawling permission or raw static HTML dump from web server disk.
-  3. Sitemaps (`sitemap.xml`) or route definitions from production web server.
+### Verbatim Error Log Output
+```
+*   Trying 185.143.234.238:443...
+* connect to 185.143.234.238 port 443 from 192.168.0.2 port 39358 failed: Connection timed out
+* Failed to connect to www.amlakbashi.com port 443 after 269939 ms: Couldn't connect to server
+* Closing connection
+curl: (28) Failed to connect to www.amlakbashi.com port 443 after 269939 ms: Couldn't connect to server
+```
 
-### Preservation Rules Applied
-When live page crawling is performed in a future task:
-- All original Persian text must be preserved verbatim (no translation, no spelling correction, no character normalization).
-- All meta tags, SEO canonical links, structured schema markup (JSON-LD), headings, breadcrumbs, and image attributes must be preserved lossless.
+---
+
+## 2. Technical Findings & Reachability Diagnostics
+
+* **DNS Resolution (`[FACT]`):** Domain `www.amlakbashi.com` successfully resolved to IPv4 address `185.143.234.238`.
+* **Network Egress (`[FACT]`):** TCP connection attempts to port 443 timed out after 269 seconds. Outbound network traffic from the sandbox container (`192.168.0.2`) to host `185.143.234.238` is blocked by container egress policy or host firewall rules.
+* **Live Site Inventory Impact (`[FACT]`):** Live crawling from within this agent sandbox container cannot complete without egress firewall rule adjustment or static HTML archive exports.
